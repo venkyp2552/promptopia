@@ -1,0 +1,36 @@
+here we are using following packages to amke sure our project flexible
+    1.bcrypt --> to make our password into hash format
+    2.Mangodb for database
+    3.Mongoose for management
+    4.next-auth for autentications
+
+S2:
+    1.delete app and public folder ->we are going build complete from scratch
+        -> Create app folder newly to the root folder
+        -> create Components folder newly  to the root folder
+        -> create models newly  to the root folder -> For mongodb and mongose models perspective.
+        -> Create public folder newly  to the root folder
+        -> create styles folder newly  to the root folder
+        -> utils folder newly  to the root folder -> for utility functions.
+        -> .env file -> for stroing all our personal keys and hashes.
+
+    2.add tailwind css in the tailwind config file and create global.css file under the styles folder create all our styles in that file.
+    3.add all our assests into the public folder
+    4.app->create page.jsx and layout.jsx tis file will act as home file to the layout.js it will handle all the components and files etc..
+        -> layout.jsx file will be the root for the Browser. in thar function we need to pass {children} then we can access all the components from any folder.
+
+    Error: If u start run the node it will through the error like styles.global.css error like that.to fix this
+            -we have to open the jsconfig.json file there we will have
+                    -> Remove   "@/*" forward slash(/), then everything will work properly..
+                        {
+                        "compilerOptions": {
+                            "paths": {
+                            "@/*": [
+                                "./*"
+                            ]
+                            }
+                        }
+                        }
+
+
+        
