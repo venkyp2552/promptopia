@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 // useSession retives the users informtion,  If a session exists, the provider information is extracted from the session object.
 const Nav = () => {
-    const isUserLoggedIn = false;
+    const isUserLoggedIn = true;
     const [providers, setProviders] = useState(null);
     useEffect(() => {
         const setProviders = async () => {
@@ -18,6 +18,7 @@ const Nav = () => {
         setProviders();
     }, [])
     return (
+        // bg-gradient-to-l from-[#eea5ba] to-[#8ca8e8] p-2 mt-2 rounded-lg shadow shadow-[#8ca8e8]
         <nav className='flex-between w-full mb-16 pt-3'>
             <Link className='flex gap-2 flex-center' href="/">
                 <Image src="/assets/images/logo.svg" width={30} height={30} alt='Promptopia' className='object-container' />
@@ -36,10 +37,16 @@ const Nav = () => {
                     </div>
                 ) : (
                     <>
-
+                        {/* we are checking if we have access to providers then we do following steps below */}
+                        {providers && Object.values(providers).map(provider)(
+                            <button className='black_btn' type='button' onClick={() => signIn(provider.id)} key={provider.name}>Sign In</button>
+                        )}
                     </>
                 )}
             </div>
+
+            {/* Mobile Navigation */}
+
         </nav>
     )
 }
