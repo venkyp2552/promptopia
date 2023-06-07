@@ -1,6 +1,7 @@
 import React, { children } from 'react';
 import "@styles/global.css";
-
+import Nav from '@components/Nav';
+import Provider from '@components/Provider';
 export const metadata = {
     title: "Promptopia",
     description: "Discover & Share AI Prompts",
@@ -16,6 +17,7 @@ const RootLayout = ({ children }) => {
                 </div>
                 {/* below line is the main part of our application */}
                 <main className='app'>
+                    <Nav />
                     {/* all the childrens we are going to render */}
                     {children}
                 </main>

@@ -31,6 +31,29 @@ S2:
                             }
                         }
                         }
+    
+    S3:
+        once we have done with above creation then we canmove to home file creation(app/page.jsx file)
+    
+    S4:
+        Comonents Folder:
+            -Feed.jsx
+            -Form.jsx
+            -Nav.jsx
+            -Profile.jsx
+            -PromptCard.jsx
+            -Provider.jsx
+        Once we have created above files under the component folder, then immediatly imoprt Feed.jsx in pages.jsx(Home File)
 
-
-        
+    S5:
+        -Next we have to import Nav.jsx file in the layout.jsx file(app/layout.jsx).Bcz Navbar file we are going use in all our componets so layout js section is the root one . here we need to import and add
+        - Similiarly we have to imoprt Provider.jsx foe useage of later on
+        -NOTE: We need to add <Nav/> Components above the {children}, then Nav will stick to the top which means all the children components will comes under the Nav
+    
+    S6:
+        -Nav.jsx Implementation
+            -We need import Link,Image from next , Usestate,useeffect from react, 
+            -Signin,Signout,useSession,getProviders from "next-auth/react these 4 will provide authnetication mesuerments
+            -if the user is logged in then only we have to display the create-prompt button avalible otherwise we have to hiiden that button.
+            -if the user is not loggedIn we should not display the create-post and signout button and all, that we have display only signIn button only..
+            -to check the above line concet we need to work woth getProviders authentiation from next-auth/react, here we need to write useEffect remaing function to validate wheather the user is logged in or not
