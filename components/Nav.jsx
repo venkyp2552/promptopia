@@ -7,6 +7,7 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 const Nav = () => {
     const isUserLoggedIn = true;
     const [providers, setProviders] = useState(null);
+    const [toggleDropdown, settoggleDropdown] = useState(false)
     useEffect(() => {
         const setProviders = async () => {
             const response = await getProviders();
@@ -46,7 +47,36 @@ const Nav = () => {
             </div>
 
             {/* Mobile Navigation */}
+            <div className='sm:hidden flex relative'>
+                {isUserLoggedIn ? (
+                    <div className='flex'>
+                        <Image onClick={() => settoggleDropdown((prev) => !prev)} src="/assets/images/logo.svg" alt="User Profile" width={37} height={37} />
+                        {toggleDropdown && (
+                            <div className='dropdown'>
+                                <Link href="/profile" className='dropdown_link' onClick={() => settoggleDropdown(false)}>
+                                    My Profile
+                                </Link>
+                                <Link href="/create-prompt" className='dropdown_link' onClick={() => settoggleDropdown(false)}>
+                                    Create Prompt
+                                </Link>
+                                <button type="button" onClick={() => {
+                                    settoggleDropdown(false)
+                                    signOut()
+                                }} className='w-full mt-5 black_btn'>Sign Out</button>
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <>
+                        {/* we are checking if we have access to providers then we do following steps below */}
+                        {providers && Object.values(providers).map(provider)(
+                            <button className='black_btn' type='button' onClick={() => signIn(provider.id)} key={provider.name}>Sign In</button>
+                        )}
+                    </>
+                )
 
+                }
+            </div>
         </nav>
     )
 }

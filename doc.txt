@@ -57,3 +57,100 @@ S2:
             -if the user is logged in then only we have to display the create-prompt button avalible otherwise we have to hiiden that button.
             -if the user is not loggedIn we should not display the create-post and signout button and all, that we have display only signIn button only..
             -to check the above line concet we need to work woth getProviders authentiation from next-auth/react, here we need to write useEffect remaing function to validate wheather the user is logged in or not
+
+    S7: 
+        -Now we need to make sure that authnetication from next-auth/react side for thatr we have to go to provider.jsx file therer we need to do modifications
+        -Provider has to be use everywhere across the project so for that we need to keep this one in layout.jsx
+        -Then in layout.jsx file we need to keep all our code wrap into <body><Provider>Here paste all our code..</Provider></body>
+
+    S8:
+        -For authentication nextjs will use next-auth/react patters, behind the scene there will be some end points.to create that API end points we have to create api folder under app folder
+            -app/api/auth/[..nextauth](WHich is noting b ut dynamic router/auth router)/router.jsx->within this we can provide google authentication to perform our project smoothly.
+            -go to this https://console.cloud.google.com/ register your website to get providers from google
+            -top left drop click-create project name then click create button.
+            -select promtopia project from top left->API end Points->OAuth Consent screen->click Create button->Fill the all requirements->create creadetials-go to the credential lefrt side
+            -on top we can see create credentials click that button once.then select web application, then fill the remaining fields, select create button bottom of the page
+            -Finally will get one pop window like clinet id and secretId etc details.   
+    S9:
+        -then got to the .env file create 2 variables 
+            -GOOGLE_ID=CopyId n Paste here
+            -GOOGLE_CLIENT_SECRET=Paste it here that one also.
+    
+    S10:
+        -goto utils folder create database connections.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
