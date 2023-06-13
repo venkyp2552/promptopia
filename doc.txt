@@ -78,6 +78,20 @@ S2:
     
     S10:
         -goto utils folder create database connections.
+        -Connect to mongoDB atlas online cloud -> create a cluster,select shared cluster, 
+        - add ip address n all the stuff to the dailogue box.then go to the connect button -> drivers-?copy the
+        -Add your connection string into your application code section url and paste it on .env file at MONGODB_URI varible
+        -Now u can make routing using those functions.
+
+    S11:
+        -Import the connetTodb comonent into api/auth/router.jsx file
+
+    S12:
+        -models/create a file user.jsx to create schema for user signup
+        -once we done here then will go to the router.jsx file there we need to cross check user registered or not.
+
+    S13:
+        -Add 3 more variables to the .env file such as NEXTAUTh etc...
 
 
 
